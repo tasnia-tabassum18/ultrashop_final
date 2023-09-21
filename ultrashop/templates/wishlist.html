@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+
+{% block body %}
+  <h1>My Wishlist</h1>
+  {% if wishlist_items %}
+    <ul>
+      {% for item in wishlist_items %}
+        <li><a href="{% url 'product_details' item.product.id %}">{{ item.product.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Your wishlist is empty.</p>
+  {% endif %}
+{% endblock %}
